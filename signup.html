@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+       display: flex;
+       background-color: green;
+      justify-content: space-around;
+      padding: 10px;
+        }
+    a{
+        text-decoration: none;
+    }
+    #navbar a{
+        cursor: pointer;
+    }
+    #navbar a:hover{
+        color: white;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- <div id="navbar">
+        <div><a href="men.html">Men</a></div>
+        <div><a href="women.html">women</a></div>
+        <div><a href="signup.html">signup</a></div>
+        <div><a href="login.html">login</a></div>
+     </div> -->
+    <h1>Signup page</h1>
+   
+<form>
+    <input type="text" id="email" placeholder="Enter Email" />
+    <input type="password" id="pass" placeholder="Enter password"/>
+    <input type="text" id="name" placeholder="Enterusername" />
+    <input type="submit" />
+</form>
+    
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",signfun)
+
+    var userdata=JSON.parse(localStorage.getItem("usercreds")) || [];
+function signfun(){
+event.preventDefault();
+var userobj={
+     email:document.querySelector("#email").value,
+ pass:document.querySelector("#pass").value,
+name:document.querySelector("#name").value,
+}
+
+userdata.push(userobj);
+
+
+localStorage.setItem("usercreds",JSON.stringify(userdata))
+}
+
+
+
+
+</script>
